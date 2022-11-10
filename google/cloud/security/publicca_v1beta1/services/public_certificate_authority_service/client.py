@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -66,7 +77,7 @@ class PublicCertificateAuthorityServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[PublicCertificateAuthorityServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -346,7 +357,9 @@ class PublicCertificateAuthorityServiceClient(
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, PublicCertificateAuthorityServiceTransport, None] = None,
+        transport: Optional[
+            Union[str, PublicCertificateAuthorityServiceTransport]
+        ] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -447,12 +460,12 @@ class PublicCertificateAuthorityServiceClient(
 
     def create_external_account_key(
         self,
-        request: Union[service.CreateExternalAccountKeyRequest, dict] = None,
+        request: Optional[Union[service.CreateExternalAccountKeyRequest, dict]] = None,
         *,
-        parent: str = None,
-        external_account_key: resources.ExternalAccountKey = None,
+        parent: Optional[str] = None,
+        external_account_key: Optional[resources.ExternalAccountKey] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> resources.ExternalAccountKey:
         r"""Creates a new
